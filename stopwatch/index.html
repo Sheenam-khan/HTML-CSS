@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+         
+        
+    <div class="container">
+        <!-- <div class="stopwatch">00:00:00</div> -->
+         <!--Time and Date-->
+
+         <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12" style="text-align: center; margin-top: 20px;">
+            <h1 style="font-weight: bold;">Time </h1>
+        <h1 id="time"></h1>&nbsp;&nbsp;
+                
+         <h1 style="font-weight: bold;">Date </h1>
+            <h1 id="date"></h1>
+     </div>
+     <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12" style="text-align: center; margin-top: 20px;">
+
+        <h1 class="screen">
+            <span>
+                00
+            </span>:
+            <span >
+                00
+            </span>:
+            <span >
+                00
+            </span>:
+            <span >
+                00
+            </span>
+        </h1>
+        <br>
+     </div>
+        <div class="  buttons">
+            <button onclick="start()" class="btn btn-primary bts" id="start" enabled="false"> Start</button>
+            <button onclick="stop()" class="btn btn-danger bts" id="stop">Stop</button>
+            <button onclick="resume()" class="btn btn-primary " id="resume" disabled>Resume</button>
+            <button onclick="reset()"class="btn btn-primary bts" id="reset">Reset</button>
+        </div>
+    </div>
+    
+  
+<script>
+ let hour=0,second=0,minute=0,milliSec=0;
+let timer;
+let stopwatch=document.querySelector(".screen");
+          let h,m,s,ms;
+
+    let months=["January","February","march","april","may","june","july",
+                    "august","september","october","november","december"]
+
+    setInterval(datetime,1);
+
+            function datetime()
+        {
+
+            let date=new Date();
+            document.getElementById("date").innerHTML =date.getDate()+" ";
+            document.getElementById("date").innerHTML += months[date.getMonth()]+" ";
+            document.getElementById("date").innerHTML += date.getFullYear()+" "; 
+            document.getElementById("time").innerHTML = date.getHours()+":";
+            document.getElementById("time").innerHTML += date.getMinutes()+":";
+            document.getElementById("time").innerHTML += date.getSeconds();
+            }
+
+
+function start(){
+    if(!timer){
+   timer= setInterval(run,10);
+document.querySelector("#resume").disabled=true;
+reset();
+start();
+}}
+function run(){
+    stopwatch.textContent=getTimer();
+    milliSec++;
+    if(milliSec==100)
+    {
+        milliSec=0;
+        second++;
+    }
+    if(second==60){
+        second=0;
+        minute++;
+    }
+    if(minute==60){
+        minute=0;
+        hour++;
+    }
+    if(hour==24){
+        hour=0;
+    }
+
+}
+
+function stopTimer(){
+    clearInterval(timer);
+    timer=false;
+}
+
+function getTimer(){
+  return (hour<10?"0"+hour:hour)+":"+(minute<10 ? "0"+minute :minute)+":"+(second<10?"0"+second:second)+":"+(milliSec<10?"0"+milliSec:milliSec);
+}
+
+function stop(){
+   stopTimer();
+   document.querySelector("#resume").disabled=false;
+document.querySelector('#start').disabled=true;
+}
+
+function resume(){
+    stop();
+    start();
+    document.querySelector('#start').disabled=true;
+
+}
+function reset(){
+  stopTimer();
+    minute=0;
+    second=0;
+    milliSec=0;
+    stopwatch.textContent=getTimer();
+    document.querySelector('#start').disabled=false;
+
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
