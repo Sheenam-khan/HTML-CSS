@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+  <body>
+<!---15--->
+ <div class="container">
+      <br></br>
+      <h1 class="text-center text-white bg-dark">Email validation using Regex</h1>
+<br></br>
+ 
+    <div class="form-group">
+      <label>Email ID:</label>
+  <input type="text"   value="seenamkhan23@gmail.com" id="emailcheck" >
+<p id="showmesg"></p>
+</div>
+<button class="btn btn-primary" onclick="myFunc()">Submit</button>
+
+ <br>
+ <table id="myTable" border="1"> 
+</table><form> 
+<input type="button" onclick="createTable()" value="Create the table"> 
+</form>
+      
+  
+</div>
+<!--11 -->
+
+
+<script>
+  let emailcheck=document.getElementById('emailcheck').value;
+  console.log(emailcheck);
+  let pattern= /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/;  
+  function myFunc(){
+  console.log(pattern.test(emailcheck));
+  if(pattern.test(emailcheck)){
+      document.getElementById('showmesg').innerHTML="email id is valid";
+  }
+  else{
+  document.getElementById('showmesg').innerHTML="please enter valid email id";
+  }
+  }
+  
+
+  
+  function createTable()
+{
+rn = window.prompt("Input number of rows", '');
+cn = window.prompt("Input number of columns",'');
+  
+ for(let r=0;r<parseInt(rn,10);r++)
+  {
+   let x=document.getElementById('myTable').insertRow(r);
+   for(let c=0;c<parseInt(cn,10);c++)  
+    {
+     let y=  x.insertCell(c);
+     y.innerHTML="Row-"+r+" Column-"+c; 
+    }
+   }
+}
+  
+  // function hideaddy(em1, em2, atxt) {
+  // if (em1 && em2) {
+  // if (!atxt) { var atxt = "E-Mail"; }
+  // document.write('<a href=\"mailto:' + em1 + '@' + em2 +'\">' + atxt + '</a>');
+  // } else {
+  // document.write(' -- No email address supplied -- ');
+  // }
+  // }
+  
+  // hideaddy('nospam', 'mediacollege.com', 'Click here to email me');
+   
+  
+  
+  
+  </script>
+
+
+  </body>
+
+</html>
