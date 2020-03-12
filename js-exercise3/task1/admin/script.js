@@ -79,17 +79,17 @@ courseCard();
 
 
 function showStudent(courseid) {
-    let studentData = JSON.parse(localStorage.getItem('students'));
+    let students = JSON.parse(localStorage.getItem('students'));
     table.innerHTML = '';
-    for (let i = 0; i < studentData.length; i++) {
+    for (let i = 0; i < students.length; i++) {
         console.log(i);
 
         table.innerHTML += `
     <tr>
     <td>${i + 1}</td>
-    <td>${studentData[i].userName}</td>
-    <td>${studentData[i].email}</td>
-    <td><input type="checkbox" name="select" onclick="studentAssign()" value="${studentData[i].email}" class='checkbox'/></td>
+    <td>${students[i].userName}</td>
+    <td>${students[i].email}</td>
+    <td><input type="checkbox" name="select" onclick="studentAssign()" value="${students[i].email}" class='checkbox'/></td>
   </tr>`
 
     }
@@ -120,25 +120,9 @@ function studentAssign() {
     }
 
     console.log(students);
-    localStorage.setItem('students', JSON.stringify(students));
+   localStorage.setItem('students', JSON.stringify(students));
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if (addCourseBtn) {
@@ -146,10 +130,6 @@ if (addCourseBtn) {
         addCourse();
     })
 }
-
-
-
-
 
 const modal = document.getElementById('id01');
 

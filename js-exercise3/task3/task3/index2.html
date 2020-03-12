@@ -84,7 +84,7 @@
 
     <script>
 
-        let i = 0;
+        let i ;
         window.onload = function(){ alert("Show");}
 
         function box3() {
@@ -95,8 +95,9 @@
             let color = ["purple", "orange", "yellow"]
             console.log(color);
 
-            if (i > color.length)
-                i = 0;
+            i = 0;
+            if (i < color.length)
+              
             document.getElementById('box4').style.background = color[i];
             i++;
         }
