@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script >
+     function firstPattern(n){
+for(let i=1;i<=n;i++){
+for(let j=1;j<=i;j++){
+document.write("*");
+}
+document.write("</br>")
+}
+
+
+     }   
+ firstPattern(4) ;
+ document.write("<br>");
+
+ function secondPattern(n){
+for(let i=1;i<=n;i++){
+for(let j=(n-1);j>=i;j--){
+document.write("&nbsp; ");
+}
+for(let k=1;k<=i;k++)
+{
+    document.write("*");
+}
+document.write("</br>")
+}
+ }   
+     secondPattern(4) ;
+
+
+     document.write("<br>");
+        
+
+
+     function thirdPattern(n){
+     for(let i=1;i<=n;i++){
+            k=1;
+            for(let j=1;j<=2*n-1;j++){
+            if(j<=n+i && j>=n+1-i && k ){
+                document.write("*");
+                k=0;}
+           else{
+                document.write("&nbsp; ");
+                k=1;
+            }}
+            document.write("<br>")
+        }
+    }
+ thirdPattern(4);
+
+ document.write("<br>")
+
+
+ function fourthPattern(n){
+for(let i=1;i<=n;i++){
+for(let j=1;j<=n;j++){
+ if(i==j || i+j==n+1){
+
+    document.write("*");
+}
+    else{
+    document.write("&nbsp; ");
+    }
+}
+document.write("</br>")
+}
+ }   
+fourthPattern(5) ;
+
+        </script>
+</body>
+</html>
