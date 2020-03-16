@@ -39,17 +39,16 @@
                 }
             });
         })
-        //console.log(map)
-    for (let [key, values] of map) {
- 
-            console.log(key, values);
+   
+for( let [key,values] of map.entries()) {
+            // console.log(`{${key}:[${values}]}`);
+        value.push(
+            {
+                [key]: values
+            }
+        );    
         }
-
-
-//         for( let [key,values] of map.entries()) {
-         
-//             console.log(`{${key}:[${values}]}`);
-//         }
+console.log(JSON.stringify(value));
  
     </script>
 </body>
