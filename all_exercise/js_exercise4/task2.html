@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [
+            {
+                Name: "​Ravindra",
+                Sports: ["Chess", "Cricket"],
+            },
+            {
+                Name: "Ravi",
+                Sports: ["Cricket", "Football"],
+            },
+
+            {
+                Name: "Rishabh",
+                Sports: ["Table-Tennis", "Football"],
+            },];
+        let map = new Map();
+
+        arr.forEach(element => {
+            //console.log(element.Sports);
+            element.Sports.forEach(eleme => {
+                //console.log( eleme)
+                if (map.get(eleme) == undefined) {
+                    map.set(eleme, [element.Name]);
+                }
+                else {
+                    map.get(eleme).push(element.Name);
+                    // console.log( map.get(eleme));
+                }
+            });
+        })
+        //console.log(map)
+    for (let [key, values] of map) {
+ 
+            console.log(key, values);
+        }
+
+
+
+        // let f,g;
+        // for( let [key,values] of map ) {
+
+        //     f=key;
+        //     g=values;
+        //     console.log(key,values);
+        // }
+
+ //map.set(f,g);
+//console.log( map.entries())
+    </script>
+</body>
+
+</html>
